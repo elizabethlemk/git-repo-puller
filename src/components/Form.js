@@ -8,7 +8,7 @@ const Form = props => {
     fetch(`https://api.github.com/users/${username}/repos`)
       .then(resp => resp.json())
       .then(data => {
-        console.log(data);
+        console.log(data, username);
         // props.onSubmit(data);
         setUsername("");
       });
@@ -19,7 +19,7 @@ const Form = props => {
         type="text"
         value={username}
         onChange={event => setUsername(event.target.value)}
-        placeholder="GitHub username"
+        placeholder="Enter a Github username"
         required
       />
       <button type="submit">Submit</button>
