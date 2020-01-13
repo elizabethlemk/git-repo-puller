@@ -3,7 +3,6 @@ import { DragDropContext } from "react-beautiful-dnd";
 import Form from "./components/Form";
 import User from "./components/User";
 import Repo from "./components/Repo";
-import Issue from "./components/Issue";
 import IssuesColumn from "./components/IssuesColumn";
 
 const App = () => {

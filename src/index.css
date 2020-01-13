@@ -77,7 +77,7 @@ span.issues {
   color: white;
 }
 .issue-wrapper {
-  padding: 0 2rem;
+  padding-left: 2rem;
   width: 50%;
   position: relative;
 }
