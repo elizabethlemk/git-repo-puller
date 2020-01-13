@@ -19,16 +19,38 @@ const App = () => {
     localCurrentRepo ? localCurrentRepo : ""
   );
   const [issues, setIssue] = useState(localIssues ? localIssues : "");
+
   const handleClose = () => {
     setIssue("");
     setCurrentRepo("");
     localStorage.setItem("currentIssues", null);
     localStorage.setItem("currentRepo", null);
   };
-  const onDragEnd = result => {};
+  const onDragEnd = result => {
+    const { destination, source, draggableId } = result;
+    if (!destination) {
+      return;
+    }
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+    const itemGrabbed = issues.find(
+      issue => `issue-${issue.id}` === draggableId
+    );
+    const newIssueIds = [...issues];
+    newIssueIds.splice(source.index, 1);
+    newIssueIds.splice(destination.index, 0, itemGrabbed);
+    setIssue(newIssueIds);
+    localStorage.setItem("currentIssues", JSON.stringify(newIssueIds));
+  };
+
+  // Todo list:
   // need to prevent re-rendering of unnecessary components
-  // re-sort issues?
   // unit testing
+  console.log(issues);
   return (
     <div className="main-container">
       <Form
