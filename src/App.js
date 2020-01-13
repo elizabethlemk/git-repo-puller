@@ -51,7 +51,7 @@ const App = () => {
 
   // Todo list:
   // unit testing
-  console.log("Coded with 💖 by Elizabeth Le");
+
   return (
     <div className="main-container">
       <Form
@@ -81,7 +81,7 @@ const App = () => {
         ) : null}
         {issues ? (
           <>
-            <div className="modal-wrapper"></div>
+            <div className="modal-wrapper" onClick={handleClose}></div>
             <div className="issue-wrapper">
               <i className="fas fa-times close-icon" onClick={handleClose}></i>
               <h2>
