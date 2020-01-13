@@ -5,16 +5,22 @@ const Form = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    fetch(`https://api.github.com/users/${username}/repos`)
+    fetch(`https://api.github.com/users/${username}/repos?sort=created`)
       .then(resp => resp.json())
       .then(data => {
-        console.log(data, username);
-        // props.onSubmit(data);
+        props.setRepos(data);
+        localStorage.setItem("currentRepos", JSON.stringify(data));
         setUsername("");
+      });
+    fetch(`https://api.github.com/users/${username}`)
+      .then(resp => resp.json())
+      .then(data => {
+        props.setUser(data);
+        localStorage.setItem("currentUser", JSON.stringify(data));
       });
   };
   return (
-    <form className="username-form" onSubmit={handleSubmit}>
+    <form className="username-form text-center" onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}

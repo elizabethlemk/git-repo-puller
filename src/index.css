@@ -2,4 +2,90 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+li {
+  list-style: none;
+}
+p {
+  margin: 10px 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: #7ab81a;
+  transition: all 0.3s;
+}
+a:hover {
+  color: black;
+}
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.justify-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.align-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.main-container {
+  padding: 4rem 2rem;
+}
+.container {
+  margin: 2rem;
+}
+.user-avatar {
+  height: 100px;
+  width: 100px;
+  margin: 15px;
+}
+span.forks,
+span.issues {
+  margin-left: 15px;
+}
+.btn {
+  background: greenyellow;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 5px 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: black;
+  color: white;
+}
+.item {
+  margin: 30px 0;
+}
+.item .user-avatar {
+  height: 40px;
+  width: 40px;
+}
+.username-form input[type="text"] {
+  height: 48px;
+  width: 500px;
+  padding: 0 20px;
+  border: 1px solid greenyellow;
+  color: black;
+}
+.username-form button {
+  height: 48px;
+  padding: 0 30px;
+  background: greenyellow;
+  border: 1px solid greenyellow;
+  text-transform: uppercase;
 }
