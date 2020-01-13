@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
+import { DragDropContext } from "react-beautiful-dnd";
 import Form from "./components/Form";
 import User from "./components/User";
 import Repo from "./components/Repo";
 import Issue from "./components/Issue";
+import IssuesColumn from "./components/IssuesColumn";
 
 const App = () => {
   // Store Github User and Repo info in Local Storage
@@ -25,6 +26,7 @@ const App = () => {
     localStorage.setItem("currentIssues", null);
     localStorage.setItem("currentRepo", null);
   };
+  const onDragEnd = result => {};
   // need to prevent re-rendering of unnecessary components
   // re-sort issues?
   // unit testing
@@ -71,14 +73,14 @@ const App = () => {
                 </a>
               </h2>
               {issues.length > 0 ? (
-                issues.map(issue => (
-                  <Issue
-                    key={issue.id}
-                    issue={issue}
-                    setIssue={setIssue}
+                <DragDropContext onDragEnd={onDragEnd}>
+                  <IssuesColumn
+                    issues={issues}
+                    currentRepo={currentRepo}
                     setCurrentRepo={setCurrentRepo}
+                    setIssue={setIssue}
                   />
-                ))
+                </DragDropContext>
               ) : (
                 <div className="item">There aren't any open issues!</div>
               )}
