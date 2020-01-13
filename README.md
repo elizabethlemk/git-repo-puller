@@ -4,7 +4,7 @@
 This app uses the Github API to pull data on any Github user and display their repos and any open issues along with it!
 You are able to reorganize the issues by priority and it persists via Local Storage.
 
-![alt text] (https://github.com/elizabethlemk/git-repo-puller/blob/master/Screen%20Shot%202020-01-13%20at%201.29.34%20PM.png?raw=true "screenshot of the app")
+![alt text](https://github.com/elizabethlemk/git-repo-puller/blob/master/Screen%20Shot%202020-01-13%20at%201.29.34%20PM.png "screenshot of the app")
 
 ## Technology Used
 - React Hooks
