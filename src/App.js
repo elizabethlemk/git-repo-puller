@@ -20,6 +20,7 @@ const App = () => {
   );
   const [issues, setIssue] = useState(localIssues ? localIssues : "");
 
+  // closes the issues wrapper
   const handleClose = () => {
     setIssue("");
     setCurrentRepo("");
@@ -29,27 +30,26 @@ const App = () => {
 
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
-    if (!destination) {
-      return;
-    }
+    if (!destination) return;
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
-    ) {
+    )
       return;
-    }
+
+    // Rearrange issues array
     const itemGrabbed = issues.find(
       issue => `issue-${issue.id}` === draggableId
     );
     const newIssueIds = [...issues];
     newIssueIds.splice(source.index, 1);
     newIssueIds.splice(destination.index, 0, itemGrabbed);
+    // change issues state + local storage
     setIssue(newIssueIds);
     localStorage.setItem("currentIssues", JSON.stringify(newIssueIds));
   };
 
   // Todo list:
-  // need to prevent re-rendering of unnecessary components
   // unit testing
   return (
     <div className="main-container">

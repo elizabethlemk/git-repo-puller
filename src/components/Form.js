@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = props => {
+const Form = React.memo(function Form(props) {
   const [username, setUsername] = useState("");
 
   const handleSubmit = event => {
@@ -22,6 +22,7 @@ const Form = props => {
         localStorage.setItem("currentUser", JSON.stringify(data));
       });
   };
+  console.log("rendering");
   return (
     <form className="username-form text-center" onSubmit={handleSubmit}>
       <input
@@ -34,6 +35,6 @@ const Form = props => {
       <button type="submit">Submit</button>
     </form>
   );
-};
+});
 
 export default Form;

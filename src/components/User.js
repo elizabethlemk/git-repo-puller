@@ -1,7 +1,8 @@
 import React from "react";
 
-const User = props => {
+const User = React.memo(function User(props) {
   let { user } = props;
+  console.log("rendering");
   return (
     <div className="container flex align-center user-wrapper">
       <a href={user.html_url} target="_blank" rel="noopener noreferrer">
@@ -32,6 +33,6 @@ const User = props => {
       </div>
     </div>
   );
-};
+});
 
 export default User;

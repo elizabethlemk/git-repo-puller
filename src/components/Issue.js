@@ -2,9 +2,9 @@ import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 import Moment from "react-moment";
 
-const Issue = props => {
+const Issue = React.memo(function Issue(props) {
   let { issue } = props;
-
+  console.log("rendering");
   return (
     <Draggable draggableId={`issue-${issue.id}`} index={props.index}>
       {provided => (
@@ -48,6 +48,6 @@ const Issue = props => {
       )}
     </Draggable>
   );
-};
+});
 
 export default Issue;

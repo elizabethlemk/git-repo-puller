@@ -1,6 +1,6 @@
 import React from "react";
 
-const Repo = props => {
+const Repo = React.memo(function Repo(props) {
   let { repo } = props;
 
   const handleIssue = () => {
@@ -21,7 +21,7 @@ const Repo = props => {
         );
       });
   };
-
+  console.log("rendering");
   return (
     <div className="item" data-id={`repo-${repo.id}`}>
       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
@@ -61,6 +61,6 @@ const Repo = props => {
       </div>
     </div>
   );
-};
+});
 
 export default Repo;
