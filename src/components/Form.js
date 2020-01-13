@@ -5,6 +5,9 @@ const Form = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    localStorage.clear();
+    props.setIssue("");
+    props.setCurrentRepo("");
     fetch(`https://api.github.com/users/${username}/repos?sort=created`)
       .then(resp => resp.json())
       .then(data => {

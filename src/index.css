@@ -7,6 +7,7 @@
 li {
   list-style: none;
 }
+
 p {
   margin: 10px 0;
 }
@@ -18,7 +19,7 @@ a:visited {
   transition: all 0.3s;
 }
 a:hover {
-  color: black;
+  color: purple;
 }
 .text-center {
   text-align: center;
@@ -43,6 +44,7 @@ a:hover {
 
 .main-container {
   padding: 4rem 2rem;
+  width: 100%;
 }
 .container {
   margin: 2rem;
@@ -65,8 +67,12 @@ span.issues {
   transition: all 0.3s;
 }
 .btn:hover {
-  background: black;
+  background: purple;
   color: white;
+}
+.issue-wrapper {
+  padding: 0 2rem;
+  width: 50%;
 }
 .item {
   margin: 30px 0;
@@ -77,8 +83,9 @@ span.issues {
 }
 .username-form input[type="text"] {
   height: 48px;
-  width: 500px;
-  padding: 0 20px;
+  width: 50%;
+  min-width: 200px;
+  padding-left: 20px;
   border: 1px solid greenyellow;
   color: black;
 }
@@ -88,4 +95,56 @@ span.issues {
   background: greenyellow;
   border: 1px solid greenyellow;
   text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.username-form button:hover {
+  background-color: purple;
+  color: white;
+}
+
+@media screen and (max-width: 739px) {
+  p,
+  h3 {
+    overflow: auto;
+  }
+  .main-container {
+    padding: 2rem 1rem;
+  }
+  .container {
+    margin: 1rem 0;
+  }
+  .issue-wrapper {
+    padding: 0.5rem;
+  }
+  .user-avatar {
+    height: 50px;
+    width: 50px;
+  }
+  .modal-wrapper {
+    position: fixed;
+    display: none;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .issue-wrapper .item {
+    flex-direction: column;
+  }
+  .repo-wrapper {
+    width: 100% !important;
+    margin: 1rem 0;
+  }
+  .issue-wrapper {
+    padding: 1rem 0.5rem;
+    display: none;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 6;
+  }
 }

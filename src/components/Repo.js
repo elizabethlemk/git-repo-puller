@@ -4,7 +4,9 @@ const Repo = props => {
   let repo = props.repo;
 
   const handleIssue = () => {
-    fetch(`https://api.github.com/repos/${props.user}/${repo.name}/issues`)
+    fetch(
+      `https://api.github.com/repos/${props.user}/${repo.name}/issues?sort=updated&direction=desc`
+    )
       .then(resp => resp.json())
       .then(data => {
         props.setIssue(data);

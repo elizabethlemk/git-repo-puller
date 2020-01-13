@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Form from "./components/Form";
 import User from "./components/User";
 import Repo from "./components/Repo";
@@ -18,11 +19,17 @@ const App = () => {
     localCurrentRepo ? localCurrentRepo : ""
   );
   const [issues, setIssue] = useState(localIssues ? localIssues : "");
-  // ISSUE: when you enter a new username, the old issues still show
+
+  // need to prevent re-rendering of unnecessary components
   console.log(currentRepo);
   return (
     <div className="main-container">
-      <Form setUser={setUser} setRepos={setRepos} />
+      <Form
+        setUser={setUser}
+        setRepos={setRepos}
+        setCurrentRepo={setCurrentRepo}
+        setIssue={setIssue}
+      />
       {user ? <User user={user} repos={repos} /> : null}
       <div className="container flex">
         {repos ? (
@@ -42,6 +49,7 @@ const App = () => {
             ))}
           </div>
         ) : null}
+        <div className="modal-wrapper"></div>
         {issues ? (
           <div className="issue-wrapper">
             <h2>

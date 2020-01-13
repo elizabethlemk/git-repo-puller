@@ -7,7 +7,7 @@ const Issue = props => {
 
   return (
     <div
-      className="item flex"
+      className="item flex align-center"
       data-id={`issue-${issue.id}`}
       data-position={issue.number}
     >
@@ -21,15 +21,15 @@ const Issue = props => {
       <div>
         <ul>
           <li>{issue.title}</li>
-          <span>
-            Created at:{" "}
+          <li>
+            Created:{" "}
             {<Moment format="MM/DD/YYYY" date={new Date(issue.created_at)} />}
-          </span>
+          </li>
           {"   "}
           {issue.updated_at ? (
-            <span>
-              Updated at: {<Moment fromNow date={new Date(issue.updated_at)} />}{" "}
-            </span>
+            <li>
+              Updated: {<Moment fromNow date={new Date(issue.updated_at)} />}{" "}
+            </li>
           ) : null}
         </ul>
       </div>
