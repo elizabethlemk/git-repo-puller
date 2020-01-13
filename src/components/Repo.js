@@ -1,7 +1,7 @@
 import React from "react";
 
 const Repo = props => {
-  let repo = props.repo;
+  let { repo } = props;
 
   const handleIssue = () => {
     fetch(

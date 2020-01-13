@@ -26,6 +26,7 @@ const App = () => {
     localStorage.setItem("currentIssues", null);
     localStorage.setItem("currentRepo", null);
   };
+
   const onDragEnd = result => {
     const { destination, source, draggableId } = result;
     if (!destination) {
@@ -50,7 +51,6 @@ const App = () => {
   // Todo list:
   // need to prevent re-rendering of unnecessary components
   // unit testing
-  console.log(issues);
   return (
     <div className="main-container">
       <Form

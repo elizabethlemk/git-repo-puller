@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import Moment from "react-moment";
 
 const Issue = props => {
-  let issue = props.issue;
+  let { issue } = props;
 
   return (
     <Draggable draggableId={`issue-${issue.id}`} index={props.index}>

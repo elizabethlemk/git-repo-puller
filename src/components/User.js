@@ -1,7 +1,7 @@
 import React from "react";
 
 const User = props => {
-  let user = props.user;
+  let { user } = props;
   return (
     <div className="container flex align-center user-wrapper">
       <a href={user.html_url} target="_blank" rel="noopener noreferrer">
