@@ -2,7 +2,6 @@ import React from "react";
 import Moment from "react-moment";
 
 const Issue = props => {
-  console.log(props);
   let issue = props.issue;
 
   return (

@@ -19,9 +19,15 @@ const App = () => {
     localCurrentRepo ? localCurrentRepo : ""
   );
   const [issues, setIssue] = useState(localIssues ? localIssues : "");
-
+  const handleClose = () => {
+    setIssue("");
+    setCurrentRepo("");
+    localStorage.setItem("currentIssues", null);
+    localStorage.setItem("currentRepo", null);
+  };
   // need to prevent re-rendering of unnecessary components
-  console.log(currentRepo);
+  // re-sort issues?
+  // unit testing
   return (
     <div className="main-container">
       <Form
@@ -49,25 +55,35 @@ const App = () => {
             ))}
           </div>
         ) : null}
-        <div className="modal-wrapper"></div>
         {issues ? (
-          <div className="issue-wrapper">
-            <h2>
-              Issues for{" "}
-              <a
-                href={currentRepo.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {currentRepo.name}
-              </a>
-            </h2>
-            {issues.length > 0 ? (
-              issues.map(issue => <Issue key={issue.id} issue={issue} />)
-            ) : (
-              <div className="item">There aren't any open issues!</div>
-            )}
-          </div>
+          <>
+            <div className="modal-wrapper"></div>
+            <div className="issue-wrapper">
+              <i className="fas fa-times close-icon" onClick={handleClose}></i>
+              <h2>
+                Issues for{" "}
+                <a
+                  href={currentRepo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {currentRepo.name}
+                </a>
+              </h2>
+              {issues.length > 0 ? (
+                issues.map(issue => (
+                  <Issue
+                    key={issue.id}
+                    issue={issue}
+                    setIssue={setIssue}
+                    setCurrentRepo={setCurrentRepo}
+                  />
+                ))
+              ) : (
+                <div className="item">There aren't any open issues!</div>
+              )}
+            </div>
+          </>
         ) : null}
       </div>
     </div>
