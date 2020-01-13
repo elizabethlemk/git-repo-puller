@@ -51,6 +51,7 @@ const App = () => {
 
   // Todo list:
   // unit testing
+  console.log("Coded with 💖 by Elizabeth Le");
   return (
     <div className="main-container">
       <Form
