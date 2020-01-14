@@ -49,9 +49,6 @@ const App = () => {
     localStorage.setItem("currentIssues", JSON.stringify(newIssueIds));
   };
 
-  // Todo list:
-  // unit testing
-
   return (
     <div className="main-container">
       <Form
